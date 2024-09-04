@@ -7,24 +7,74 @@
     <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-    
-    <div x-data="{ sidebarOpen: false }" class="flex flex-col sm:flex-row min-h-screen bg-gray-100">
+    <div class="flex flex-col sm:flex-row min-h-screen bg-gray-100">
         <!-- Sidebar for Larger Screens -->
-        <div :class="{'block': sidebarOpen, 'hidden': !sidebarOpen}" class="hidden sm:block sm:w-64 bg-white shadow-lg">
-            <div class="p-4 font-bold text-lg">Dashboard</div>
+        <div id="sidebar" class="hidden sm:block sm:w-64 bg-black text-white shadow-lg">
+            <div class="flex justify-center pt-8 pb-3 px-2">
+                <img src="/assets/images/logo.png" alt="Logo" class=" h-full">
+            </div>
             <nav>
                 <ul>
-                    <li class="p-4 hover:bg-gray-200 cursor-pointer">Item 1</li>
-                    <li class="p-4 hover:bg-gray-200 cursor-pointer">Item 2</li>
-                    <li class="p-4 hover:bg-gray-200 cursor-pointer">Item 3</li>
-                    <li class="p-4 hover:bg-gray-200 cursor-pointer">Item 4</li>
-                    <li class="p-4 hover:bg-gray-200 cursor-pointer">Item 5</li>
+                    <li id="dashboard-p" class="relative p-4 hover:bg-gray-200 cursor-pointer flex items-center">
+                        <div id="dashboard" class="absolute left-0 h-full w-1 bg-blue-500"></div>
+                        <div onclick="active('dashboard')" class="flex items-center">
+                            <span class="mr-4">
+                                <img src="/assets/svg/dashboard.svg" alt="">
+                            </span>
+                            <span>Dashboard</span>
+                        </div>
+                    </li>
+                    <li id="invoice-p" class="relative px-2 py-4 hover:bg-gray-200 cursor-pointer flex items-center">
+                        <div id="invoice" class="absolute left-0 h-full w-1 bg-blue-500 hidden"></div>
+                        <div onclick="active('invoice')" class="flex items-center">
+                            <span class="mr-4">
+                                <img src="/assets/svg/invoice.svg" alt="">
+                            </span>
+                            <span>Invoice</span>
+                        </div>
+                    </li>
+                    <li id="reports-p" class="relative px-2 py-4 hover:bg-gray-200 cursor-pointer flex items-center">
+                        <div id="reports" class="absolute left-0 h-full w-1 bg-blue-500 hidden"></div>
+                        <div onclick="active('reports')" class="flex items-center">
+                            <span class="mr-4">
+                                <img src="/assets/svg/reports.svg" alt="">
+                            </span>
+                            <span>Reports</span>
+                        </div>
+                    </li>
+                    <li id="offline-data-p" class="relative px-2 py-4 hover:bg-gray-200 cursor-pointer flex items-center">
+                        <div id="offline-data" class="absolute left-0 h-full w-1 bg-blue-500 hidden"></div>
+                        <div onclick="active('offline-data')" class="flex items-center">
+                            <span class="mr-4">
+                                <img src="/assets/svg/offline-data.svg" alt="">
+                            </span>
+                            <span>Offline Data</span>
+                        </div>
+                    </li>
+                    <li id="page-customization-p" class="relative px-2 py-4 hover:bg-gray-200 cursor-pointer flex items-center">
+                        <div id="page-customization" class="absolute left-0 h-full w-1 bg-blue-500 hidden"></div>
+                        <div onclick="active('page-customization')" class="flex items-center">
+                            <span class="mr-4">
+                                <img src="/assets/svg/page-customization.svg" alt="">
+                            </span>
+                            <span>Page Customization</span>
+                        </div>
+                    </li>
+                    <li id="support-p" class="relative px-2 py-4 hover:bg-gray-200 cursor-pointer flex items-center">
+                        <div id="support" class="absolute left-0 h-full w-1 bg-blue-500 hidden"></div>
+                        <div onclick="active('support')" class="flex items-center">
+                            <span class="mr-4">
+                                <img src="/assets/svg/support.svg" alt="">
+                            </span>
+                            <span>Support</span>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     
         <!-- Toggle Button for Mobile -->
-        <button @click="sidebarOpen = !sidebarOpen" class="sm:hidden fixed top-4 right-4 z-50 bg-indigo-500 text-white p-2 rounded-full shadow-lg hover:bg-indigo-600 focus:outline-none">
+        <button id="sidebar-toggle" class="sm:hidden fixed top-4 right-4 z-50 bg-indigo-500 text-white p-2 rounded-full shadow-lg hover:bg-indigo-600 focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -37,16 +87,17 @@
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                     <h1 class="text-2xl font-bold">Dashboard Overview</h1>
                     <div class="flex space-x-3 mt-4 md:mt-0">
-                        <input type="text" placeholder="Search..." class="w-full md:w-auto p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <div class="flex items-center border-2 border-gray-400 bg-white pr-1 rounded-xl">
+                            <span class="p-2">
+                                <img src="/assets/svg/search.svg" alt="" class="w-8 p-1" />
+                            </span>
+                            <input type="text" placeholder="Search..." class="w-full p-3 rounded-r border-0 focus:outline-none bg-inherit"/>
+                        </div>
                         <button class="p-2 bg-white rounded-full shadow-md hover:bg-indigo-50 focus:outline-none">
-                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m0 8v1m0 4v1m-7 0h1m8 0h1m-4-4h1m-1-8H6.5a2.5 2.5 0 01-2.5-2.5v0a2.5 2.5 0 012.5-2.5H16.5a2.5 2.5 0 012.5 2.5v0a2.5 2.5 0 01-2.5 2.5H13z"></path>
-                            </svg>
+                            <img src="/assets/svg/setting.svg" alt="" class="w-8 p-1"/>
                         </button>
                         <button class="p-2 bg-white rounded-full shadow-md hover:bg-indigo-50 focus:outline-none">
-                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.403-1.403a1 1 0 01-.217-.269 8.05 8.05 0 01-3.38-4.281 0.999 0.999 0 01.043-.805L13.5 4.5a1 1 0 00-1.421-.21L10 6H7a1 1 0 000 2h1.34l1.34 2.68c.07.14.107.3.108.463v1.584c0 .218 0 .47-.001.736C9.782 15.606 10 16.336 10 17c0 1.343 1.344 2 3 2a1 1 0 001-1z"></path>
-                            </svg>
+                            <img src="/assets/svg/notification.svg" alt="" class="w-8 p-1"/>
                         </button>
                     </div>
                 </div>
@@ -56,16 +107,36 @@
                     <a href="#" class="text-indigo-500 hover:underline">Home</a>
                     <span>/</span>
                     <a href="#" class="hover:underline">Dashboard</a>
-                    <span>/</span>
-                    <span>Overview</span>
                 </nav>
             </div>
-    <slot/>
+            <slot/>
         </div>
     </div>
 
-<h3 class="">kwesfdjb</h3>
 
+<script is:inline>
+      document.getElementById('sidebar-toggle').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+function active(id){
+ let newid =   document.getElementById(id)
+ if(newid.classList.contains('hidden')){
+    newid.classList.remove('hidden');
+ }else {
+
+ }
+    let pid = id + '-p';
+    // alert(pid);
+
+    document.getElementById(pid).classList.add('px-2 py-4');
+    document.getElementById(pid).classList.remove('p-4');
+
+    
+   
+};
+
+</script>
 
 </body>
 </html>
