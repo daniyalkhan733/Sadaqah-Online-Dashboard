@@ -1,7 +1,8 @@
 ---
-const { title, description } = Astro.props;
+const { title, value,description } = Astro.props;
 ---
-<div class="p-4 bg-gray-100 rounded-lg shadow-md">
-    <h2 class="text-lg font-bold mb-2">{title}</h2>
-    <p class="text-gray-600">{description}</p>
+<div class="p-4 bg-white rounded-lg shadow-md h-32 grid content-around">
+    <h2 class="text-lg font-medium mb-2">{title}</h2>
+    <p class="text-4xl mb-4 font-semibold" >{value || "No value found"}</p>
+    <p class="font-semibold text-gray-600">{description}</p>
 </div>
