@@ -24,6 +24,7 @@
         </div>
       </li>
     </a>
+    <a href="/invoice">
       <li
         id="invoice-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -35,8 +36,8 @@
           </span>
           <span id="invoice-s">Invoice</span>
         </div>
-      </li>
-      
+      </li></a>
+      <a href="/reports">
       <li
         id="reports-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -48,8 +49,8 @@
           </span>
           <span id="reports-s">Reports</span>
         </div>
-      </li>
-      
+      </li></a>
+      <a href="/offline-data">
       <li
         id="offline-data-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -61,8 +62,8 @@
           </span>
           <span id="offline-data-s">Offline Data</span>
         </div>
-      </li>
-      
+      </li></a>
+      <a href="/page-customization">
       <li
         id="page-customization-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -74,8 +75,8 @@
           </span>
           <span id="page-customization-s">Page Customization</span>
         </div>
-      </li>
-      
+      </li></a>
+      <a href="/support">
       <li
         id="support-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -87,7 +88,7 @@
           </span>
           <span id="support-s">Support</span>
         </div>
-      </li>
+      </li></a>
       
       <!-- More items ... -->
     </ul>
@@ -174,6 +175,22 @@ function active(id, pid, rid) {
 
 // Set Dashboard as default active item
 window.onload = () => {
-  active("dashboard", "dashboard-p", "dashboard-s");
+    const currentUrl = window.location.pathname;
+
+    // Check if the current URL matches any of the listed items
+    if (currentUrl.includes("/dashboard")) {
+        active("dashboard", "dashboard-p", "dashboard-s");
+    } else if (currentUrl.includes("/invoice")) {
+        active("invoice", "invoice-p", "invoice-s");
+    } else if (currentUrl.includes("/reports")) {
+        active("reports", "reports-p", "reports-s");
+    } else if (currentUrl.includes("/offline-data")) {
+        active("offline-data", "offline-data-p", "offline-data-s");
+    } else if (currentUrl.includes("/page-customization")) {
+        active("page-customization", "page-customization-p", "page-customization-s");
+    } else if (currentUrl.includes("/support")) {
+        active("support", "support-p", "support-s");
+    }
+//   active("dashboard", "dashboard-p", "dashboard-s");
 };
 </script>
