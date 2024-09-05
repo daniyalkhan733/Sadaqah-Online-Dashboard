@@ -1,5 +1,5 @@
 ---
-import SidebarIcons from "../components/SidebarIcon.astro";
+
 ---
 
 <!-- Sidebar for Larger Screens -->
@@ -10,6 +10,7 @@ import SidebarIcons from "../components/SidebarIcon.astro";
   </div>
   <nav>
     <ul id="sidebar-menu">
+        <a href="/dashboard">
       <li
         id="dashboard-p"
         class="relative px-2 py-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -19,9 +20,10 @@ import SidebarIcons from "../components/SidebarIcon.astro";
           <span class="mr-4">
             <img src="/assets/svg/sidebar/dashboard-w.svg" alt="" />
           </span>
-          <span id="dashboard-s"><a href="/dashboard">Dashboard</a></span>
+          <span id="dashboard-s">Dashboard</span>
         </div>
       </li>
+    </a>
       <li
         id="invoice-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
