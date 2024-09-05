@@ -3,14 +3,14 @@ import SidebarIcons from "../components/SidebarIcon.astro";
 ---
 
 <!-- Sidebar for Larger Screens -->
-<div id="sidebar" class="hidden sm:block sm:w-64 bg-black text-white shadow-lg">
+<div id="sidebar" class="hidden md:block sm:w-64 bg-black text-white shadow-lg h-screen w-60 fixed z-50">
   <div class="flex justify-center pt-8 pb-3 px-2">
     <a href="/">
     <img src="/assets/images/logo.png" alt="Logo" class="h-full" /></a>
   </div>
   <nav>
     <ul id="sidebar-menu">
-        <li
+      <li
         id="dashboard-p"
         class="relative px-2 py-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
       >
@@ -22,7 +22,6 @@ import SidebarIcons from "../components/SidebarIcon.astro";
           <span id="dashboard-s"><a href="/dashboard">Dashboard</a></span>
         </div>
       </li>
-      
       <li
         id="invoice-p"
         class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
@@ -88,14 +87,20 @@ import SidebarIcons from "../components/SidebarIcon.astro";
         </div>
       </li>
       
+      <!-- More items ... -->
     </ul>
   </nav>
+</div>
+
+<!-- Main Content -->
+<div id="main-content" class="ml-0 md:ml-64">
+  <!-- Your main content goes here -->
 </div>
 
 <!-- Toggle Button for Mobile -->
 <button
   id="sidebar-toggle"
-  class="sm:hidden fixed top-4 right-4 z-50 bg-[#F0EDCC] text-white p-2 rounded-full shadow-lg hover:bg-[#F0EDCC] focus:outline-none"
+  class="md:hidden fixed top-4 right-4 z-50 bg-[#02343F] text-white p-2 rounded-full shadow-lg hover:bg-[#c2bf9b] focus:outline-none"
 >
   <svg
     class="w-6 h-6"
@@ -115,7 +120,18 @@ import SidebarIcons from "../components/SidebarIcon.astro";
 <script is:inline>
 document.getElementById("sidebar-toggle").addEventListener("click", () => {
   const sidebar = document.getElementById("sidebar");
+  const html = document.documentElement;
+  const body = document.body;
   sidebar.classList.toggle("hidden");
+
+  // Disable scrolling when sidebar is open on mobile
+  if (!sidebar.classList.contains("hidden")) {
+    html.classList.add("overflow-hidden");
+    body.classList.add("overflow-hidden");
+  } else {
+    html.classList.remove("overflow-hidden");
+    body.classList.remove("overflow-hidden");
+  }
 });
 
 function active(id, pid, rid) {
@@ -157,5 +173,4 @@ function active(id, pid, rid) {
 window.onload = () => {
   active("dashboard", "dashboard-p", "dashboard-s");
 };
-
 </script>
