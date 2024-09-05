@@ -1,0 +1,60 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import CardOne from '../../components/CardOne.astro'
+import CardTwo from '../../components/CardTwo.astro'
+
+
+---
+<MainLayout>
+<Breadcrumb title="Dashboard"/>
+
+
+            <!-- Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <CardOne title="Daily Donation" value="£100" description="+30% From Last Month" />
+                <CardOne title="Weekly Donation" value="£1000" description="+30% From Last Month" />
+  
+                <CardOne title="Monthly Donation" value="£10000" description="+30% From Last Month" />
+  
+              </div>
+      
+              <!-- Main and Sidebar Sections -->
+              <div class="flex flex-col md:flex-row py-6 bg-gray-100 space-y-6 md:space-y-0 md:space-x-6">
+                  <!-- Main Section -->
+                  <div class="bg-white p-6 rounded-lg shadow-lg w-full md:w-3/4">
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 m-[-15px]">
+                        <CardTwo title="Daily Donation" description="+30% From Last Month" />
+                        <CardTwo title="Daily Donation" description="+30% From Last Month" />
+                        <CardTwo title="Daily Donation" description="+30% From Last Month" />
+  
+                      </div>
+                      <div class="flex items-center justify-between mb-4">
+                          <h2 class="text-xl font-bold text-gray-800">Main Section Title</h2>
+                          <button class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Action Button</button>
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                          <div class="bg-gray-100 p-4 rounded">Column 1 Data</div>
+                          <div class="bg-gray-100 p-4 rounded">Column 2 Data</div>
+                          <div class="bg-gray-100 p-4 rounded">Column 3 Data</div>
+                          <div class="bg-gray-100 p-4 rounded">Column 4 Data</div>
+                      </div>
+                  </div>
+      
+                  <!-- Sidebar Section -->
+                  <div class="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/4">
+                      <h2 class="text-xl font-bold text-gray-800 mb-4">Sidebar Title</h2>
+                      <div class="flex flex-col space-y-4">
+                          <div class="flex justify-between">
+                              <span>Data 1</span>
+                              <span>Value 1</span>
+                          </div>
+                          <div class="flex justify-between">
+                              <span>Data 2</span>
+                              <span>Value 2</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+</MainLayout>

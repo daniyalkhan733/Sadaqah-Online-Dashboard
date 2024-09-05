@@ -1,0 +1,160 @@
+---
+import SidebarIcons from "../components/SidebarIcon.astro";
+---
+
+<!-- Sidebar for Larger Screens -->
+<div id="sidebar" class="hidden sm:block sm:w-64 bg-black text-white shadow-lg">
+  <div class="flex justify-center pt-8 pb-3 px-2">
+    <img src="/assets/images/logo.png" alt="Logo" class="h-full" />
+  </div>
+  <nav>
+    <ul id="sidebar-menu">
+        <li
+        id="dashboard-p"
+        class="relative px-2 py-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+      >
+        <div id="dashboard" class="absolute left-0 h-full w-1 bg-white"></div>
+        <div onclick="active('dashboard', 'dashboard-p', 'dashboard-s')" class="flex items-center">
+          <span class="mr-4">
+            <img src="/assets/svg/sidebar/dashboard-w.svg" alt="" />
+          </span>
+          <span id="dashboard-s">Dashboard</span>
+        </div>
+      </li>
+      
+      <li
+        id="invoice-p"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+      >
+        <div id="invoice" class="absolute left-0 h-full w-1 bg-white hidden"></div>
+        <div onclick="active('invoice', 'invoice-p', 'invoice-s')" class="flex items-center">
+          <span class="mr-4">
+            <SidebarIcons name="Invoice" src="/assets/svg/sidebar/invoice-w.svg" />
+          </span>
+          <span id="invoice-s">Invoice</span>
+        </div>
+      </li>
+      
+      <li
+        id="reports-p"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+      >
+        <div id="reports" class="absolute left-0 h-full w-1 bg-white hidden"></div>
+        <div onclick="active('reports', 'reports-p', 'reports-s')" class="flex items-center">
+          <span class="mr-4">
+            <img src="/assets/svg/sidebar/reports-w.svg" alt="" />
+          </span>
+          <span id="reports-s">Reports</span>
+        </div>
+      </li>
+      
+      <li
+        id="offline-data-p"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+      >
+        <div id="offline-data" class="absolute left-0 h-full w-1 bg-white hidden"></div>
+        <div onclick="active('offline-data', 'offline-data-p', 'offline-data-s')" class="flex items-center">
+          <span class="mr-4">
+            <img src="/assets/svg/sidebar/offline-data-w.svg" alt="" />
+          </span>
+          <span id="offline-data-s">Offline Data</span>
+        </div>
+      </li>
+      
+      <li
+        id="page-customization-p"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+      >
+        <div id="page-customization" class="absolute left-0 h-full w-1 bg-white hidden"></div>
+        <div onclick="active('page-customization', 'page-customization-p', 'page-customization-s')" class="flex items-center">
+          <span class="mr-4">
+            <img src="/assets/svg/sidebar/page-customization-w.svg" alt="" />
+          </span>
+          <span id="page-customization-s">Page Customization</span>
+        </div>
+      </li>
+      
+      <li
+        id="support-p"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+      >
+        <div id="support" class="absolute left-0 h-full w-1 bg-white hidden"></div>
+        <div onclick="active('support', 'support-p', 'support-s')" class="flex items-center">
+          <span class="mr-4">
+            <img src="/assets/svg/sidebar/support-w.svg" alt="" />
+          </span>
+          <span id="support-s">Support</span>
+        </div>
+      </li>
+      
+    </ul>
+  </nav>
+</div>
+
+<!-- Toggle Button for Mobile -->
+<button
+  id="sidebar-toggle"
+  class="sm:hidden fixed top-4 right-4 z-50 bg-[#F0EDCC] text-white p-2 rounded-full shadow-lg hover:bg-[#F0EDCC] focus:outline-none"
+>
+  <svg
+    class="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+
+<script is:inline>
+document.getElementById("sidebar-toggle").addEventListener("click", () => {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("hidden");
+});
+
+function active(id, pid, rid) {
+  let items = document.querySelectorAll("#sidebar-menu li");
+  let indicators = document.querySelectorAll("#sidebar-menu div[id]");
+  let spans = document.querySelectorAll("#sidebar-menu span[id]");
+
+  // Deactivate all items
+  items.forEach((item) => {
+    item.classList.add("px-2", "py-4");
+    item.classList.remove("p-4", "active-item");
+  });
+
+  // Hide all indicators
+  indicators.forEach((indicator) => {
+    indicator.classList.add("hidden");
+  });
+
+  // Reset all spans by removing 'text-yellow-500' class
+  spans.forEach((span) => {
+    span.classList.remove("text-white");
+  });
+
+  // Activate the selected item
+  let newid = document.getElementById(id);
+  let newpid = document.getElementById(pid);
+  newid.classList.remove("hidden");
+
+  // Activate the selected span
+  let selectedSpan = document.getElementById(rid);
+  selectedSpan.classList.add("text-white");
+
+  // Update active item class
+  newpid.classList.add("p-4", "active-item");
+  newpid.classList.remove("px-2", "py-4");
+}
+
+// Set Dashboard as default active item
+window.onload = () => {
+  active("dashboard", "dashboard-p", "dashboard-s");
+};
+
+</script>
