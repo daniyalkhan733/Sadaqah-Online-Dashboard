@@ -5,7 +5,8 @@ import SidebarIcons from "../components/SidebarIcon.astro";
 <!-- Sidebar for Larger Screens -->
 <div id="sidebar" class="hidden sm:block sm:w-64 bg-black text-white shadow-lg">
   <div class="flex justify-center pt-8 pb-3 px-2">
-    <img src="/assets/images/logo.png" alt="Logo" class="h-full" />
+    <a href="/">
+    <img src="/assets/images/logo.png" alt="Logo" class="h-full" /></a>
   </div>
   <nav>
     <ul id="sidebar-menu">
@@ -18,7 +19,7 @@ import SidebarIcons from "../components/SidebarIcon.astro";
           <span class="mr-4">
             <img src="/assets/svg/sidebar/dashboard-w.svg" alt="" />
           </span>
-          <span id="dashboard-s">Dashboard</span>
+          <span id="dashboard-s"><a href="/dashboard">Dashboard</a></span>
         </div>
       </li>
       
@@ -29,7 +30,7 @@ import SidebarIcons from "../components/SidebarIcon.astro";
         <div id="invoice" class="absolute left-0 h-full w-1 bg-white hidden"></div>
         <div onclick="active('invoice', 'invoice-p', 'invoice-s')" class="flex items-center">
           <span class="mr-4">
-            <SidebarIcons name="Invoice" src="/assets/svg/sidebar/invoice-w.svg" />
+            <img src="/assets/svg/sidebar/reports-w.svg" alt="" />
           </span>
           <span id="invoice-s">Invoice</span>
         </div>
