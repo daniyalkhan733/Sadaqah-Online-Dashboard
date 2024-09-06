@@ -11,36 +11,38 @@
   <nav>
     <ul id="sidebar-menu">
         <a href="/dashboard">
-      <li
-        id="dashboard-p"
-        class="relative px-2 py-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
-      >
-        <div id="dashboard" class="absolute left-0 h-full w-1 bg-white"></div>
-        <div onclick="active('dashboard', 'dashboard-p', 'dashboard-s')" class="flex items-center">
-          <span class="mr-4">
-            <img src="/assets/svg/sidebar/dashboard-w.svg" alt="" />
-          </span>
-          <span id="dashboard-s">Dashboard</span>
-        </div>
-      </li>
+          <li
+          id="dashboard-p"
+          class="relative px-2 py-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
+        >
+          <div id="dashboard" class="absolute left-0 h-full w-1 bg-white"></div>
+          <div onclick="active('dashboard', 'dashboard-p', 'dashboard-s')" class="flex items-center">
+            <span class="mr-4">
+              <img src="/assets/svg/sidebar/dashboard-w.svg" alt="" />
+            </span>
+            <span id="dashboard-s">Dashboard</span>
+          </div>
+        </li>
+        
     </a>
     <a href="/invoice">
       <li
-        id="invoice-p"
-        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
-      >
-        <div id="invoice" class="absolute left-0 h-full w-1 bg-white hidden"></div>
-        <div onclick="active('invoice', 'invoice-p', 'invoice-s')" class="flex items-center">
-          <span class="mr-4">
-            <img src="/assets/svg/sidebar/reports-w.svg" alt="" />
-          </span>
-          <span id="invoice-s">Invoice</span>
-        </div>
-      </li></a>
+      id="invoice-p"
+      class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
+    >
+      <div id="invoice" class="absolute left-0 h-full w-1 bg-white hidden"></div>
+      <div onclick="active('invoice', 'invoice-p', 'invoice-s')" class="flex items-center">
+        <span class="mr-4">
+          <img src="/assets/svg/sidebar/reports-w.svg" alt="" />
+        </span>
+        <span id="invoice-s">Invoice</span>
+      </div>
+    </li>
+    </a>
       <a href="/reports">
       <li
         id="reports-p"
-        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
       >
         <div id="reports" class="absolute left-0 h-full w-1 bg-white hidden"></div>
         <div onclick="active('reports', 'reports-p', 'reports-s')" class="flex items-center">
@@ -53,7 +55,7 @@
       <a href="/offline-data">
       <li
         id="offline-data-p"
-        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
       >
         <div id="offline-data" class="absolute left-0 h-full w-1 bg-white hidden"></div>
         <div onclick="active('offline-data', 'offline-data-p', 'offline-data-s')" class="flex items-center">
@@ -66,7 +68,7 @@
       <a href="/page-customization">
       <li
         id="page-customization-p"
-        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
       >
         <div id="page-customization" class="absolute left-0 h-full w-1 bg-white hidden"></div>
         <div onclick="active('page-customization', 'page-customization-p', 'page-customization-s')" class="flex items-center">
@@ -79,7 +81,7 @@
       <a href="/support">
       <li
         id="support-p"
-        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center"
+        class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
       >
         <div id="support" class="absolute left-0 h-full w-1 bg-white hidden"></div>
         <div onclick="active('support', 'support-p', 'support-s')" class="flex items-center">
