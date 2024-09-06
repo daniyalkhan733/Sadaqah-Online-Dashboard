@@ -1,35 +1,42 @@
 ---
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import NewTicket from "../../components/support/NewTicket.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-
-
 ---
+
 <MainLayout>
     <Breadcrumb title="Support" />
     <div class="flex items-center justify-between mb-4 pt-8">
         <h2 class="md:text-[28px] text-xl font-bold text-gray-800 align-middle">
-Support Center        </h2>
+            Support Center
+        </h2>
         <button
+            onclick="toggleDropdownAddTicket()"
             class="px-4 py-2 bg-[#02343F] text-[12px] md:text-[16px] text-white rounded-lg hover:bg-[#034c5c]"
             >Add New Ticket</button
         >
+        <NewTicket />
+    </div>  
+    <hr class="mb-8 border-[#D2D2D2]" />
+
+
+    <div class="flex flex-col items-center justify-center h-64">
+        <!-- Icon -->
+        <img src="/assets/svg/i-hex.svg" alt="" />
+
+        <!-- No Support History Text -->
+        <h2 class="text-xl font-semibold text-gray-900 mb-2">
+            No Support History
+        </h2>
+
+        <!-- Description Text -->
+        <p class="text-gray-500">you haven't created any support cases yet</p>
     </div>
-    <hr class=" mb-8 border-[#D2D2D2]" />
-
-        <div class="flex flex-col items-center justify-center  h-64">
-            <!-- Icon -->
-            <img src="/assets/svg/i-hex.svg" alt="" />
-
-          
-            <!-- No Support History Text -->
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">No Support History</h2>
-          
-            <!-- Description Text -->
-            <p class="text-gray-500">you haven't created any support cases yet</p>
-          </div>
-          
-
-
-
-
 </MainLayout>
+
+<script is:inline>
+    function toggleDropdownAddTicket() {
+      const addTicketDropdown = document.getElementById("add-ticket-form");
+      addTicketDropdown.classList.remove("hidden");
+    }
+  </script>
