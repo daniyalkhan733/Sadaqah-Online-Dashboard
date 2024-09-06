@@ -2,6 +2,10 @@
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import NewTicket from "../../components/support/NewTicket.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
+
+import TicketTable from "../../components/support/TicketTable.astro";
+
+
 ---
 
 <MainLayout>
@@ -20,9 +24,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <hr class="mb-8 border-[#D2D2D2]" />
 
 
-    <div class="flex flex-col items-center justify-center h-64">
-        <!-- Icon -->
-        <img src="/assets/svg/i-hex.svg" alt="" />
+        
+          
+          <TicketTable />
+
 
         <!-- No Support History Text -->
         <h2 class="text-xl font-semibold text-gray-900 mb-2">

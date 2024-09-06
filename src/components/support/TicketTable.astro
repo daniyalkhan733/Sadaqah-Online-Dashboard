@@ -1,0 +1,71 @@
+---
+import SingleTicketRow from './SingleTicketRow.astro'
+---
+
+<button class="mb-4 flex items-center bg-black text-white py-2 px-4 rounded-lg shadow-lg hover:bg-gray-800">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-1 1h-1l-5.59 7.59a2 2 0 00-.41 1.18V19l-2 2v-4.23a2 2 0 00-.41-1.18L5 7H4a1 1 0 01-1-1V4z" />
+    </svg>
+    <span>Filter</span>
+  </button>
+    <div class="max-w-full overflow-x-auto bg-white rounded-lg shadow">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                    <th scope="col" class="p-4">
+                        <div class="flex items-center">
+                            <input
+                            type="checkbox"
+                            id="select-all"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                            onclick="toggleSelectAll(this)"
+                          />
+                        </div>
+                    </th>
+                    <th scope="col" class="px-6 py-3">#</th>
+                    <th scope="col" class="px-6 py-3">TICKET ID</th>
+                    <th scope="col" class="px-6 py-3">SUBJECT</th>
+                    <th scope="col" class="px-6 py-3">STATUS</th>
+                    <th scope="col" class="px-6 py-3">PRIORITY</th>
+                    <th scope="col" class="px-6 py-3">CREATED DATE</th>
+                    <th scope="col" class="px-6 py-3">UPDATED DATE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+              <SingleTicketRow id="1" ticketNumber="TCKT-001" subject="Website is down" status="Open" priority="High" created="2021-09-01" updated="2021-09-01" />
+              <SingleTicketRow id="2" ticketNumber="TCKT-002" subject="Need help with payment" status="Closed" priority="Low" created="2021-09-01" updated="2021-09-01" />  
+                <SingleTicketRow id="3" ticketNumber="TCKT-003" subject="Can't login to account" status="Open" priority="Medium" created="2021-09-01" updated="2021-09-01" />
+                <!-- Repeat similar structure for rows 2-9, changing status and priority as needed -->
+            </tbody>
+        </table>
+    </div>
+    <div class="flex items-center justify-between mt-4">
+        <span class="text-sm text-gray-700">
+            1-10 of 97
+        </span>
+        <div class="flex items-center space-x-2">
+            <span class="text-sm text-gray-700">Rows per page:</span>
+            <select class="text-sm border-gray-300 rounded-md">
+                <option>10</option>
+            </select>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="px-3 py-1 text-sm text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-100">&lt;</button>
+            <span class="text-sm text-gray-700">1/10</span>
+            <button class="px-3 py-1 text-sm text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-100">&gt;</button>
+        </div>
+    </div>
+<script is:inline>
+  // Function to toggle all row checkboxes based on the top checkbox
+  function toggleSelectAll(source) {
+    const checkboxes = document.querySelectorAll('.row-checkbox');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = source.checked;
+
+    });
+    
+  }
+
+
+</script>
