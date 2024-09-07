@@ -30,7 +30,7 @@ import SingleTicketRow from "./SingleTicketRow.astro";
             <input
               type="checkbox"
               id="select-all"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 hover:cursor-pointer"
               onclick="toggleSelectAll(this)"
             />
           </div>
@@ -40,8 +40,8 @@ import SingleTicketRow from "./SingleTicketRow.astro";
         <th scope="col" class="px-6 py-3">SUBJECT</th>
         <th scope="col" class="px-6 py-3">STATUS</th>
         <th scope="col" class="px-6 py-3">PRIORITY</th>
-        <th scope="col" class="px-6 py-3">CREATED DATE</th>
-        <th scope="col" class="px-6 py-3">UPDATED DATE</th>
+        <th scope="col" class="px-6 py-3 text-center">CREATED DATE</th>
+        <th scope="col" class="px-6 py-3 text-center">UPDATED DATE</th>
       </tr>
     </thead>
     <tbody>

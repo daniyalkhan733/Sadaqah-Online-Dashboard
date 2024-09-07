@@ -8,7 +8,7 @@ const { id, ticketNumber, subject, status, priority, created, updated } =
     <div class="flex items-center">
       <input
         type="checkbox"
-        class="row-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+        class="row-checkbox w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 hover:cursor-pointer"
       />
     </div>
   </td>
@@ -39,6 +39,6 @@ const { id, ticketNumber, subject, status, priority, created, updated } =
       {priority}
     </span>
   </td>
-  <td class="px-6 py-4">{created}</td>
-  <td class="px-6 py-4">{updated}</td>
+  <td class="px-6 py-4 text-center ">{created}</td>
+  <td class="px-6 py-4 text-center">{updated}</td>
 </tr>
