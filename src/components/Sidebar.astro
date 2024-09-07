@@ -33,7 +33,7 @@
       <div id="invoice" class="absolute left-0 h-full w-1 bg-white hidden"></div>
       <div onclick="active('invoice', 'invoice-p', 'invoice-s')" class="flex items-center">
         <span class="mr-4">
-          <img src="/assets/svg/sidebar/reports-w.svg" alt="" />
+          <img src="/assets/svg/sidebar/invoice-w.svg" alt="" />
         </span>
         <span id="invoice-s">Invoice</span>
       </div>
@@ -123,9 +123,6 @@
   </svg>
 </button>
 
-
-
-
 <script is:inline>
 document.getElementById("sidebar-toggle").addEventListener("click", () => {
   const sidebar = document.getElementById("sidebar");
@@ -171,8 +168,7 @@ function active(id, pid, rid) {
 
   // Activate the selected span
   let selectedSpan = document.getElementById(rid);
-  selectedSpan.classList.add("text-white hover:text-black");
-  
+  selectedSpan.classList.add("text-white");
 
   // Update active item class
   newpid.classList.add("p-4", "active-item");
