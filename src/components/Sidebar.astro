@@ -123,6 +123,9 @@
   </svg>
 </button>
 
+
+
+
 <script is:inline>
 document.getElementById("sidebar-toggle").addEventListener("click", () => {
   const sidebar = document.getElementById("sidebar");
@@ -168,7 +171,8 @@ function active(id, pid, rid) {
 
   // Activate the selected span
   let selectedSpan = document.getElementById(rid);
-  selectedSpan.classList.add("text-white");
+  selectedSpan.classList.add("text-white hover:text-black");
+  
 
   // Update active item class
   newpid.classList.add("p-4", "active-item");
