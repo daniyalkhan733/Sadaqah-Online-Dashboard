@@ -67,7 +67,7 @@
           </div>
         </li></a
       >
-      <a href="/offline-data">
+      <!-- <a href="/offline-data">
         <li
           id="offline-data-p"
           class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
@@ -87,8 +87,8 @@
             <span id="offline-data-s">Offline Data</span>
           </div>
         </li></a
-      >
-      <a href="/page-customization">
+      > -->
+      <!-- <a href="/page-customization">
         <li
           id="page-customization-p"
           class="relative p-4 hover:bg-[#F0EDCC] hover:text-black cursor-pointer flex items-center transition-all duration-300"
@@ -108,7 +108,7 @@
             <span id="page-customization-s">Page Customization</span>
           </div>
         </li></a
-      >
+      > -->
       <a href="/support">
         <li
           id="support-p"
@@ -191,7 +191,7 @@
       indicator.classList.add("hidden");
     });
 
-    // Reset all spans by removing 'text-yellow-500' class
+    // Reset all spans by removing 'text-white' class
     spans.forEach((span) => {
       span.classList.remove("text-white");
     });
@@ -200,14 +200,17 @@
     let newid = document.getElementById(id);
     let newpid = document.getElementById(pid);
     newid.classList.remove("hidden");
+    // newpid.classList.remove("hover:text-black");
 
     // Activate the selected span
     let selectedSpan = document.getElementById(rid);
     selectedSpan.classList.add("text-white");
+    selectedSpan.classList.add("hover:text-black");
 
     // Update active item class
     newpid.classList.add("p-4", "active-item");
     newpid.classList.remove("px-2", "py-4");
+
   }
 
   // Set Dashboard as default active item

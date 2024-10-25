@@ -1,10 +1,10 @@
 ---
-import SingleTicketRow from "./SingleTicketRow.astro";
+import SingleInvoiceRow from "./SingleInvoiceRow.astro"
 ---
 
 <div class="relative flex flex-row">
   <!-- Filter Button -->
-  <button
+  <!-- <button
   id="filterBtn"
   class="mb-4 flex items-center bg-black text-white py-2 px-4 rounded-lg shadow-lg hover:bg-gray-800"
 >
@@ -23,7 +23,7 @@ import SingleTicketRow from "./SingleTicketRow.astro";
     ></path>
   </svg>
   <span>Filter</span>
-</button>
+</button> -->
 
   <!-- Dropdown Menu (Initially hidden) -->
   <div id="filterMenu" class="absolute  left-[102px] w-48 bg-white shadow-lg rounded-lg hidden z-10">
@@ -223,58 +223,106 @@ import SingleTicketRow from "./SingleTicketRow.astro";
 
 
 
-<div class="max-w-full overflow-x-auto bg-white rounded-lg shadow">
+<div class="max-w-full overflow-x-auto h-96 overflow-y-auto bg-white rounded-lg shadow">
   <table class="w-full text-sm text-left">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-      <tr>
-        <th scope="col" class="p-4">
-          <div class="flex items-center">
-            <input
-              type="checkbox"
-              id="select-all"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 hover:cursor-pointer"
-              onclick="toggleSelectAll(this)"
-            />
-          </div>
-        </th>
-        <th scope="col" class="px-6 py-3">#</th>
-        <th scope="col" class="px-6 py-3">TICKET ID</th>
-        <th scope="col" class="px-6 py-3">SUBJECT</th>
-        <th scope="col" class="px-6 py-3">STATUS</th>
-        <th scope="col" class="px-6 py-3">PRIORITY</th>
-        <th scope="col" class="px-6 py-3 text-center">CREATED DATE</th>
-        <th scope="col" class="px-6 py-3 text-center">UPDATED DATE</th>
+    <thead class="bg-gray-50 text-gray-700 uppercase text-xs">
+      <tr> <th class="p-4">
+        <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded" />
+      </th>
+        <th class="p-4">#</th>
+       
+        <th class="px-6 py-3">Ticket ID</th>
+        <th class="px-6 py-3">Date</th>
+        <th class="px-6 py-3">Status</th>
+        <th class="px-6 py-3">Amount Due</th>
+        <th class="px-6 py-3">Amount Paid</th>
+        <th class="px-6 py-3"></th>
+        <th class="px-6 py-3"></th>
       </tr>
     </thead>
     <tbody>
       <!-- Row 1 -->
-      <SingleTicketRow
+      <SingleInvoiceRow 
         id="1"
-        ticketNumber="TCKT-001"
-        subject="Website is down"
-        status="Open"
-        priority="High"
-        created="2021-09-01"
-        updated="2021-09-01"
+        invoiceNumber="TCKT-001"
+        date="14/09/2024"
+        status="PAID"
+        dueAmount="£ 500"
+        paidAmount="£ 500"
       />
-      <SingleTicketRow
+      <SingleInvoiceRow 
         id="2"
-        ticketNumber="TCKT-002"
-        subject="Need help with payment"
-        status="Closed"
-        priority="Low"
-        created="2021-09-01"
-        updated="2021-09-01"
+        invoiceNumber="TCKT-002"
+        date="15/09/2024"
+        status="UNPAID"
+        dueAmount="£ 300"
+        paidAmount="£ 0"
       />
-      <SingleTicketRow
+      <SingleInvoiceRow 
         id="3"
-        ticketNumber="TCKT-003"
-        subject="Can't login to account"
-        status="Open"
-        priority="Medium"
-        created="2021-09-01"
-        updated="2021-09-01"
+        invoiceNumber="TCKT-003"
+        date="16/09/2024"
+        status="UNPAID"
+        dueAmount="£ 400"
+        paidAmount="£ 200"
       />
+      <SingleInvoiceRow 
+        id="4"
+        invoiceNumber="TCKT-004"
+        date="17/09/2024"
+        status="PAID"
+        dueAmount="£ 600"
+        paidAmount="£ 600"
+      />
+      <SingleInvoiceRow 
+        id="5"
+        invoiceNumber="TCKT-005"
+        date="18/09/2024"
+        status="UNPAID"
+        dueAmount="£ 700"
+        paidAmount="£ 0"
+      />
+      <SingleInvoiceRow 
+        id="6"
+        invoiceNumber="TCKT-006"
+        date="19/09/2024"
+        status="UNPAID"
+        dueAmount="£ 800"
+        paidAmount="£ 400"
+      />
+      <SingleInvoiceRow 
+        id="7"
+        invoiceNumber="TCKT-007"
+        date="20/09/2024"
+        status="PAID"
+        dueAmount="£ 900"
+        paidAmount="£ 900"
+      />
+      <SingleInvoiceRow 
+        id="8"
+        invoiceNumber="TCKT-008"
+        date="21/09/2024"
+        status="UNPAID"
+        dueAmount="£ 1000"
+        paidAmount="£ 0"
+      />
+      <SingleInvoiceRow 
+        id="9"
+        invoiceNumber="TCKT-009"
+        date="22/09/2024"
+        status="UNPAID"
+        dueAmount="£ 1100"
+        paidAmount="£ 550"
+      />
+      <SingleInvoiceRow 
+        id="10"
+        invoiceNumber="TCKT-010"
+        date="23/09/2024"
+        status="PAID"
+        dueAmount="£ 1200"
+        paidAmount="£ 1200"
+      />
+     
       <!-- Repeat similar structure for rows 2-9, changing status and priority as needed -->
     </tbody>
   </table>
@@ -299,6 +347,9 @@ import SingleTicketRow from "./SingleTicketRow.astro";
     >
   </div>
 </div>
+
+
+
 <script is:inline>
   // Function to toggle all row checkboxes based on the top checkbox
   function toggleSelectAll(source) {
@@ -339,55 +390,3 @@ import SingleTicketRow from "./SingleTicketRow.astro";
       });
   });
 </script>
-<script is:inline>
-  // Select all priority buttons
-  const priorityButtons = document.querySelectorAll('.priority-btn');
-  const statusButtons = document.querySelectorAll('.status-btn')
-
-  // Add click event to all priority buttons
-  priorityButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      priorityButtons.forEach(btn => btn.classList.remove('active'));
-      // Add active class to the clicked button
-      this.classList.add('active');
-    });
-  });
-  statusButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      statusButtons.forEach(btn => btn.classList.remove('active'));
-      // Add active class to the clicked button
-      this.classList.add('active');
-    });
-  });
-
-  // Reset button functionality
-  document.getElementById('resetBtn').addEventListener('click', function() {
-    // Remove active class from all buttons
-    priorityButtons.forEach(btn => btn.classList.remove('active'));
-  });
-
-  // Optional: Apply button functionality
-  document.getElementById('applyBtn').addEventListener('click', function() {
-    const selectedPriority = document.querySelector('.priority-btn.active');
-    if (selectedPriority) {
-      // You can handle the selected priority here
-      alert(`Selected priority: ${selectedPriority.innerText.trim()}`);
-    } else {
-      alert('No priority selected.');
-    }
-  });
-</script>
-<style>
-  .priority-btn.active {
-    /* background-color: green; */
-    border-width: 1px;
-    border-color: black;
-    /* border-radius: 100%; */
-  }
-  .status-btn.active{
-    border-width: 1px;
-    border-color: black;
-  }
-</style>
